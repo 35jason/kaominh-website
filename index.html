@@ -130,6 +130,23 @@
     </footer>
 
 <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const switcher = document.getElementById('lang-switcher');
+    
+    // 優先順序：1. 網址參數 > 2. 使用者之前的選擇 > 3. 瀏覽器預設語言 > 4. 預設中文
+    const urlParams = new URLSearchParams(window.location.search);
+    const langFromUrl = urlParams.get('lang');
+    const savedLang = localStorage.getItem('preferredLanguage');
+    const browserLang = navigator.language.split('-')[0]; // 取得瀏覽器語言 (如 'vi', 'en', 'zh')
+    
+    let targetLang = langFromUrl || savedLang || (['zh', 'vi', 'en'].includes(browserLang) ? browserLang : 'zh');
+    
+    if(switcher) {
+        switcher.value = targetLang;
+        switcher.addEventListener('change', (e) => changeLanguage(e.target.value));
+    }
+    changeLanguage(targetLang);
+});
 const languageData = {
     "zh": {
         "site_title": "KAO MINH - 卓越散熱科技，驅動極致效能",
