@@ -14,11 +14,30 @@
         .nav-links a { color: #fff; text-decoration: none; margin-left: 20px; font-size: 1rem; transition: color 0.3s; cursor: pointer;}
         .nav-links a:hover, .nav-links a.active { color: #f0ad4e; }
         #lang-switcher { margin-left: 20px; background-color: #333; color: #fff; border: 1px solid #555; border-radius: 4px; padding: 5px; }
-        .footer { background-color: #1a1a1a; color: #fff; text-align: center; padding: 20px; font-size: 0.9rem; }
         
-        /* iframe 容器樣式 (讓系統滿版顯示) */
-        .iframe-container { width: 100%; height: 85vh; margin: 0; padding: 0; display: block; overflow: hidden; }
-        iframe { width: 100%; height: 100%; border: none; }
+        /* 頁面標題區塊 */
+        .page-header { background-color: #f4f4f4; text-align: center; padding: 60px 20px; }
+        .page-header h1 { font-size: 2.5rem; margin: 0; color: #1a1a1a; }
+        
+        /* 搜尋區塊與結果樣式 */
+        .container { padding: 40px 20px; max-width: 800px; margin: auto; text-align: center; min-height: 50vh; }
+        .search-box { margin-top: 20px; display: flex; border: 1px solid #ccc; border-radius: 5px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .search-box input { flex-grow: 1; border: none; padding: 15px; font-size: 1.1rem; }
+        .search-box input:focus { outline: none; }
+        .search-box button { background-color: #f0ad4e; color: #fff; border: none; padding: 0 30px; font-size: 1.1rem; cursor: pointer; transition: background-color 0.3s; }
+        .search-box button:hover { background-color: #e69524; }
+        .search-box button:disabled { background-color: #ccc; cursor: not-allowed; }
+
+        .search-result { margin-top: 40px; text-align: left; border: 1px solid #ddd; padding: 20px; border-radius: 8px; display: none; }
+        .search-result.show { display: block; }
+        .result-content { display: flex; flex-direction: column; gap: 20px; }
+        .result-content img { width: 100%; max-width: 1000px; height: auto; border-radius: 5px; object-fit: contain; background: #fff; border: 1px solid #eee; margin: 0 auto; display: none; }
+        .info-group p { margin: 10px 0; border-bottom: 1px solid #eee; padding-bottom: 10px; font-size: 1.1rem;}
+        
+        .loader { border: 4px solid #f3f3f3; border-radius: 50%; border-top: 4px solid #f0ad4e; width: 20px; height: 20px; animation: spin 1s linear infinite; display: inline-block; vertical-align: middle; margin-right: 5px;}
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        
+        .footer { background-color: #1a1a1a; color: #fff; text-align: center; padding: 20px; font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -39,8 +58,35 @@
         </nav>
     </header>
 
-    <main class="iframe-container">
-        <iframe src="https://script.google.com/macros/s/AKfycbzJqF0gZa6WqB-eZY7Tmnn7sZ_7wd0ELmfmKCAAVjlqa4l-9wHUGAJ4QJ0jozHXcTeyaA/exec"></iframe>
+    <main>
+        <section class="page-header">
+            <h1 data-lang-key="header_title">精準產品查詢系統</h1>
+        </section>
+
+        <section class="container">
+            <p data-lang-key="search_desc">請在下方欄位輸入您要查詢的 <strong>OEM 號碼</strong> 或 <strong>產品主編號</strong>。</p>
+            
+            <div class="search-box">
+                <input type="text" id="oemInput" data-lang-key="search_placeholder" placeholder="請輸入 OEM 號碼">
+                <button id="searchBtn" onclick="fetchData()">
+                    <span id="btnText" data-lang-key="search_button">立即查詢</span>
+                </button>
+            </div>
+            
+            <div id="searchResult" class="search-result">
+                <h3 data-lang-key="result_title">查詢結果</h3>
+                <div class="result-content">
+                    <img id="resultImage" src="" alt="產品圖片">
+                    <div class="info-group">
+                        <p><strong><span data-lang-key="result_brand_label">品牌:</span></strong> <span id="resultBrand"></span></p>
+                        <p><strong><span data-lang-key="result_model_label">KAO MINH 型號 (主編號):</span></strong> <span id="resultModel" style="color: #d9534f; font-weight: bold; font-size: 1.2em;"></span></p>
+                        <p><strong><span data-lang-key="result_vehicle_label">適用車型:</span></strong> <span id="resultVehicle"></span></p>
+                        <p><strong><span data-lang-key="result_oem_label">對應 OEM 號碼:</span></strong> <span id="resultOem" style="word-break: break-all;"></span></p>
+                    </div>
+                </div>
+            </div>
+            <p id="noResult" style="margin-top:20px; color:red; display:none; font-weight: bold;" data-lang-key="no_result_msg">查無此號碼對應的產品。</p>
+        </section>
     </main>
 
     <footer class="footer">
@@ -49,11 +95,29 @@
     </footer>
 
 <script>
-// 多語言資料
+// 多語系設定
 const languageData = {
-    "zh": { "page_title": "OEM 產品查詢 - KAO MINH", "nav_home": "首頁", "nav_about": "關於我們", "nav_products": "產品中心", "nav_oem": "OEM 產品查詢", "nav_contact": "聯絡我們" },
-    "vi": { "page_title": "Tra Cứu OEM - KAO MINH", "nav_home": "Trang Chủ", "nav_about": "Về Chúng Tôi", "nav_products": "Sản Phẩm", "nav_oem": "Tra Cứu OEM", "nav_contact": "Liên Hệ" },
-    "en": { "page_title": "OEM Search - KAO MINH", "nav_home": "Home", "nav_about": "About Us", "nav_products": "Products", "nav_oem": "OEM Search", "nav_contact": "Contact Us" }
+    "zh": {
+        "page_title": "OEM 產品查詢 - KAO MINH", "nav_home": "首頁", "nav_about": "關於我們", "nav_products": "產品中心", "nav_oem": "OEM 產品查詢", "nav_contact": "聯絡我們",
+        "header_title": "精準產品查詢系統", "search_desc": "請在下方欄位輸入您要查詢的 <strong>OEM 號碼</strong> 或 <strong>產品主編號</strong>。",
+        "search_placeholder": "輸入 OEM 或 產品主編號", "search_button": "立即查詢", "searching": "查詢中...",
+        "result_title": "查詢結果", "result_brand_label": "品牌:", "result_model_label": "KAO MINH 型號:", "result_oem_label": "對應 OEM 號碼:", "result_vehicle_label": "適用車型:",
+        "no_result_msg": "查無此號碼對應的產品，請確認後再試一次。"
+    },
+    "vi": {
+        "page_title": "Tra Cứu OEM - KAO MINH", "nav_home": "Trang Chủ", "nav_about": "Về Chúng Tôi", "nav_products": "Sản Phẩm", "nav_oem": "Tra Cứu OEM", "nav_contact": "Liên Hệ",
+        "header_title": "Hệ Thống Tra Cứu Sản Phẩm", "search_desc": "Vui lòng nhập <strong>Mã OEM</strong> hoặc <strong>Mã Sản Phẩm</strong> vào ô dưới đây.",
+        "search_placeholder": "Nhập mã OEM hoặc Mã SP", "search_button": "Tra Cứu Ngay", "searching": "Đang tìm...",
+        "result_title": "Kết Quả", "result_brand_label": "Thương hiệu:", "result_model_label": "Mã KAO MINH:", "result_oem_label": "Mã OEM:", "result_vehicle_label": "Dòng xe:",
+        "no_result_msg": "Không tìm thấy sản phẩm với mã này."
+    },
+    "en": {
+        "page_title": "OEM Search - KAO MINH", "nav_home": "Home", "nav_about": "About Us", "nav_products": "Products", "nav_oem": "OEM Search", "nav_contact": "Contact Us",
+        "header_title": "Product Search System", "search_desc": "Please enter the <strong>OEM Number</strong> or <strong>Main Product No.</strong> below.",
+        "search_placeholder": "Enter OEM or Product No.", "search_button": "Search Now", "searching": "Searching...",
+        "result_title": "Result", "result_brand_label": "Brand:", "result_model_label": "KAO MINH Model:", "result_oem_label": "OEM Ref:", "result_vehicle_label": "Vehicle:",
+        "no_result_msg": "No product found for this number."
+    }
 };
 
 function changeLanguage(lang) {
@@ -62,7 +126,11 @@ function changeLanguage(lang) {
     document.querySelectorAll('[data-lang-key]').forEach(el => {
         const key = el.getAttribute('data-lang-key');
         if (languageData[lang] && languageData[lang][key]) {
-            el.innerHTML = languageData[lang][key];
+            if (el.tagName === 'INPUT') {
+                el.placeholder = languageData[lang][key];
+            } else if (el.id !== 'btnText' || !document.getElementById('searchBtn').disabled) {
+                el.innerHTML = languageData[lang][key];
+            }
         }
     });
 }
@@ -70,13 +138,71 @@ function changeLanguage(lang) {
 document.addEventListener('DOMContentLoaded', () => {
     const switcher = document.getElementById('lang-switcher');
     const savedLang = localStorage.getItem('preferredLanguage') || 'zh';
-    
     if(switcher) {
         switcher.value = savedLang;
         switcher.addEventListener('change', (e) => changeLanguage(e.target.value));
     }
     changeLanguage(savedLang);
+
+    document.getElementById('oemInput').addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        fetchData();
+      }
+    });
 });
+
+// === 真正的核心：API 串接 ===
+function fetchData() {
+    const input = document.getElementById('oemInput').value.trim();
+    if (!input) return;
+
+    const resultDiv = document.getElementById('searchResult');
+    const noResultDiv = document.getElementById('noResult');
+    const btn = document.getElementById('searchBtn');
+    const btnText = document.getElementById('btnText');
+    const imgEl = document.getElementById('resultImage');
+    const currentLang = localStorage.getItem('preferredLanguage') || 'zh';
+
+    // 狀態改為 Loading
+    btn.disabled = true;
+    btnText.innerHTML = '<div class="loader"></div> ' + languageData[currentLang].searching;
+    resultDiv.classList.remove('show');
+    noResultDiv.style.display = 'none';
+    imgEl.style.display = 'none';
+
+    // 你的 Google Apps Script API 網址
+    const scriptUrl = 'https://script.google.com/macros/s/AKfycbzJqF0gZa6WqB-eZY7Tmnn7sZ_7wd0ELmfmKCAAVjlqa4l-9wHUGAJ4QJ0jozHXcTeyaA/exec';
+    
+    // 發送網路請求 (Fetch API)
+    fetch(`${scriptUrl}?action=search&query=${encodeURIComponent(input)}`)
+        .then(response => response.json())
+        .then(data => {
+            btn.disabled = false;
+            btnText.innerText = languageData[currentLang].search_button;
+
+            if (data && data.found) {
+                document.getElementById('resultBrand').textContent = data.brand;
+                document.getElementById('resultModel').textContent = data.mainNo;
+                document.getElementById('resultVehicle').textContent = data.vehicle;
+                document.getElementById('resultOem').textContent = data.oem;
+                
+                if (data.image) {
+                    imgEl.src = data.image;
+                    imgEl.style.display = "block";
+                }
+                resultDiv.classList.add('show');
+            } else {
+                noResultDiv.style.display = 'block';
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            btn.disabled = false;
+            btnText.innerText = languageData[currentLang].search_button;
+            alert("網路連線異常，請稍後再試。");
+        });
+}
 </script>
 
 </body>
