@@ -21,10 +21,20 @@
         .container { padding: 40px 20px; max-width: 1200px; margin: auto; }
         .section-title { text-align: center; font-size: 2.2rem; margin-bottom: 40px; color: #1a1a1a; }
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; justify-items: center; }
         .card { border: 1px solid #ddd; border-radius: 8px; overflow: hidden; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
         .card img { max-width: 100%; height: 200px; object-fit: cover; }
         .card h3 { font-size: 1.5rem; margin: 20px 0 10px 0; }
         .card p { padding: 0 20px 20px 20px; }
+        
+        /* Certifications Section Styles */
+        .certifications-section { background-color: #fff; padding: 60px 20px; }
+        .cert-card { text-align: center; max-width: 500px; }
+        .cert-card img { max-width: 100%; height: auto; border: 1px solid #eee; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-radius: 4px; transition: transform 0.3s ease; }
+        .cert-card img:hover { transform: scale(1.02); }
+        .cert-card h3 { margin-top: 20px; font-size: 1.4rem; color: #1a1a1a; }
+        .cert-desc { color: #666; font-size: 1rem; margin-top: 10px; }
+
         .about-section { background-color: #f9f9f9; padding: 60px 20px; }
         .about-content { display: flex; flex-wrap: wrap; align-items: center; gap: 40px; }
         .about-content img { max-width: 100%; width: 500px; border-radius: 8px; }
@@ -80,6 +90,25 @@
             </div>
         </section>
 
+        <!-- New Certifications Section -->
+        <section class="certifications-section">
+            <div class="container">
+                <h2 class="section-title" data-lang-key="cert_section_title">品質認證</h2>
+                <div class="grid-2">
+                    <div class="cert-card">
+                        <img src="images/IATF 169492016.png" alt="IATF 16949:2016 Certificate">
+                        <h3>IATF 16949:2016</h3>
+                        <p class="cert-desc" data-lang-key="cert_iatf_desc">全球汽車產業品質管理系統認證，確保產品與服務的一致性與高品質。</p>
+                    </div>
+                    <div class="cert-card">
+                        <img src="images/ISO 90012015.png" alt="ISO 9001:2015 Certificate">
+                        <h3>ISO 9001:2015</h3>
+                        <p class="cert-desc" data-lang-key="cert_iso_desc">國際品質管理系統標準，展現我們對持續改進與客戶滿意度的承諾。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="about-section">
             <div class="container about-content">
                 <img src="images/公司門口.png" alt="關於 KAO MINH">
@@ -110,6 +139,10 @@ const languageData = {
         "product1_title": "汽車散熱器", "product1_desc": "採用高純度鋁材與強化結構，提供高效散熱與極致耐用性，有效延長引擎壽命。",
         "product2_title": "冷凝器", "product2_desc": "專為現代汽車空調系統設計，具備優異熱交換性能，提供穩定強效的冷房效果。",
         "product3_title": "精準 OEM 匹配", "product3_desc": "透過我們的線上查詢系統，快速找到完全符合您需求的精準替換零件。",
+        // New Chinese keys for certifications
+        "cert_section_title": "品質認證",
+        "cert_iatf_desc": "全球汽車產業品質管理系統認證，確保產品與服務的一致性與高品質。",
+        "cert_iso_desc": "國際品質管理系統標準，展現我們對持續改進與客戶滿意度的承諾。",
         "about_section_title": "關於 KAO MINH",
         "about_section_desc": "自創立以來，KAO MINH 始終專注於汽車散熱系統的研發與製造。我們座落於越南同奈省的胡奈工業區，擁有現代化的生產基地與專業技術團隊。憑藉對品質的堅持與對技術的熱情，KAO MINH 已成為業界領先的製造商之一，產品行銷全球，深獲客戶信賴。",
         "about_section_button": "了解更多"
@@ -125,6 +158,10 @@ const languageData = {
         "product1_title": "Két Nước Tản Nhiệt Ô Tô", "product1_desc": "Sử dụng nhôm có độ tinh khiết cao và kết cấu gia cố, cung cấp khả năng tản nhiệt hiệu quả và độ bền tối đa, kéo dài tuổi thọ động cơ.",
         "product2_title": "Dàn Nóng", "product2_desc": "Được thiết kế cho hệ thống điều hòa ô tô hiện đại, có hiệu suất trao đổi nhiệt tuyệt vời, mang lại hiệu quả làm lạnh mạnh mẽ và ổn định.",
         "product3_title": "Đối Chiếu OEM Chính Xác", "product3_desc": "Thông qua hệ thống tra cứu trực tuyến của chúng tôi, bạn có thể nhanh chóng tìm thấy các bộ phận thay thế chính xác phù hợp với nhu cầu của mình.",
+        // New Vietnamese keys for certifications
+        "cert_section_title": "Chứng Nhận Chất Lượng",
+        "cert_iatf_desc": "Chứng nhận hệ thống quản lý chất lượng ngành ô tô toàn cầu, đảm bảo tính nhất quán và chất lượng cao của sản phẩm và dịch vụ.",
+        "cert_iso_desc": "Tiêu chuẩn hệ thống quản lý chất lượng quốc tế, thể hiện cam kết của chúng tôi đối với việc cải tiến liên tục và sự hài lòng của khách hàng.",
         "about_section_title": "Về KAO MINH",
         "about_section_desc": "Kể từ khi thành lập, KAO MINH luôn tập trung vào việc nghiên cứu, phát triển và sản xuất hệ thống tản nhiệt ô tô. Đặt tại Khu công nghiệp Hố Nai, tỉnh Đồng Nai, Việt Nam, chúng tôi có cơ sở sản xuất hiện đại và đội ngũ kỹ thuật chuyên nghiệp. Với sự kiên định về chất lượng và niềm đam mê công nghệ, KAO MINH đã trở thành một trong những nhà sản xuất hàng đầu, sản phẩm được bán trên toàn thế giới và được khách hàng tin tưởng sâu sắc.",
         "about_section_button": "Tìm Hiểu Thêm"
@@ -140,6 +177,10 @@ const languageData = {
         "product1_title": "Automotive Radiators", "product1_desc": "Made with high-purity aluminum and reinforced structures to provide efficient cooling and maximum durability, effectively extending engine life.",
         "product2_title": "Condensers", "product2_desc": "Designed for modern automotive air conditioning systems, featuring excellent heat exchange performance for stable and powerful cooling.",
         "product3_title": "Precise OEM Matching", "product3_desc": "Quickly find the exact replacement parts that meet your needs through our online search system.",
+        // New English keys for certifications
+        "cert_section_title": "Quality Certifications",
+        "cert_iatf_desc": "Global automotive industry quality management system certification, ensuring product and service consistency and high quality.",
+        "cert_iso_desc": "International quality management system standard, demonstrating our commitment to continuous improvement and customer satisfaction.",
         "about_section_title": "About KAO MINH",
         "about_section_desc": "Since its establishment, KAO MINH has focused on the R&D and manufacturing of automotive cooling systems. Located in Ho Nai Industrial Park, Dong Nai Province, Vietnam, we have a modern production base and a professional technical team. With a commitment to quality and a passion for technology, KAO MINH has become a leading manufacturer with products sold worldwide, earning deep trust from our customers.",
         "about_section_button": "Learn More"
@@ -173,3 +214,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+```eof
+
+I've added the "Quality Certifications" section (`<section class="certifications-section">`) right below the "Our Products" section. It displays the two certificate images you provided side-by-side using a new grid layout class (`.grid-2`).
+
+I also added translations for the section title and descriptions into the `languageData` script so they will update correctly when users switch languages. Let me know if you need any adjustments to the layout or text!
