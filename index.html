@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-key="site_title">KAO MINH - 卓越散熱科技，驅動極致效能</title>
+    <style>
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; color: #333; line-height: 1.6; }
+        .navbar { background-color: #1a1a1a; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: relative; }
+        .navbar .logo { color: #fff; font-size: 1.5rem; font-weight: bold; }
+        .nav-links { display: flex; align-items: center; }
+        .nav-links a { color: #fff; text-decoration: none; margin-left: 20px; font-size: 1rem; transition: color 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: #f0ad4e; }
+        #lang-switcher { margin-left: 20px; background-color: #333; color: #fff; border: 1px solid #555; border-radius: 4px; padding: 5px; }
+        .hero { background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/主頁畫面.png'); background-size: cover; background-position: center; color: #fff; text-align: center; padding: 100px 20px; }
+        .hero h1 { font-size: 2.8rem; margin-bottom: 10px; }
+        .hero h2 { font-size: 1.8rem; font-weight: 300; margin-bottom: 20px; }
+        .hero p { max-width: 800px; margin: 0 auto 30px auto; font-size: 1.1rem; }
+        .btn { background-color: #f0ad4e; color: #fff; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: background-color 0.3s; }
+        .btn:hover { background-color: #e69524; }
+        .container { padding: 40px 20px; max-width: 1200px; margin: auto; }
+        .section-title { text-align: center; font-size: 2.2rem; margin-bottom: 40px; color: #1a1a1a; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { border: 1px solid #ddd; border-radius: 8px; overflow: hidden; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .card img { max-width: 100%; height: 200px; object-fit: cover; }
+        .card h3 { font-size: 1.5rem; margin: 20px 0 10px 0; }
+        .card p { padding: 0 20px 20px 20px; }
+        .about-section { background-color: #f9f9f9; padding: 60px 20px; }
+        .about-content { display: flex; flex-wrap: wrap; align-items: center; gap: 40px; }
+        .about-content img { max-width: 100%; width: 500px; border-radius: 8px; }
+        .about-content div { flex: 1; min-width: 300px; }
+        .about-title { text-align: left !important; }
+        .footer { background-color: #1a1a1a; color: #fff; text-align: center; padding: 20px; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">KAO MINH</div>
+        <nav class="nav-links">
+            <a href="index.html" class="active" data-lang-key="nav_home">首頁</a>
+            <a href="about.html" data-lang-key="nav_about">關於我們</a>
+            <a href="products.html" data-lang-key="nav_products">產品中心</a>
+            <a href="oem-search.html" data-lang-key="nav_oem">OEM 產品查詢</a>
+            <a href="contact.html" data-lang-key="nav_contact">聯絡我們</a>
+            <select id="lang-switcher">
+                <option value="zh">繁體中文</option>
+                <option value="vi">Tiếng Việt</option>
+                <option value="en">English</option>
+            </select>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1 data-lang-key="hero_slogan">KAO MINH - 您最信賴的散熱系統專家</h1>
+            <h2 data-lang-key="hero_title">卓越散熱科技，驅動極致效能</h2>
+            <p data-lang-key="hero_desc">KAO MINH 深耕汽車散熱系統領域，憑藉多年的專業製造經驗與創新技術，致力於提供全球客戶最高品質的汽車水箱與散熱解決方案。我們堅持採用頂級原料與精密製程，確保每一件產品都具備卓越的散熱效率、耐用性與穩定性。</p>
+            <a href="products.html" class="btn" data-lang-key="hero_button">探索我們的產品</a>
+        </section>
+
+        <section class="container">
+            <h2 class="section-title" data-lang-key="products_section_title">我們的產品</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <img src="images/product-radiator.jpg" alt="汽車散熱器">
+                    <h3 data-lang-key="product1_title">汽車散熱器</h3>
+                    <p data-lang-key="product1_desc">採用高純度鋁材與強化結構，提供高效散熱與極致耐用性，有效延長引擎壽命。</p>
+                </div>
+                <div class="card">
+                    <img src="images/冷凝器 Condensers.png" alt="冷凝器">
+                    <h3 data-lang-key="product2_title">冷凝器</h3>
+                    <p data-lang-key="product2_desc">專為現代汽車空調系統設計，具備優異熱交換性能，提供穩定強效的冷房效果。</p>
+                </div>
+                <div class="card">
+                    <img src="images/OEM.png" alt="OEM 查詢">
+                    <h3 data-lang-key="product3_title">精準 OEM 匹配</h3>
+                    <p data-lang-key="product3_desc">透過我們的線上查詢系統，快速找到完全符合您需求的精準替換零件。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="container about-content">
+                <img src="images/公司門口.png" alt="關於 KAO MINH">
+                <div>
+                    <h2 class="section-title about-title" data-lang-key="about_section_title">關於 KAO MINH</h2>
+                    <p data-lang-key="about_section_desc">自創立以來，KAO MINH 始終專注於汽車散熱系統的研發與製造。我們座落於越南同奈省的河內工業區，擁有現代化的生產基地與專業技術團隊。憑藉對品質的堅持與對技術的熱情，KAO MINH 已成為業界領先的製造商之一，產品行銷全球，深獲客戶信賴。</p>
+                    <a href="about.html" class="btn" data-lang-key="about_section_button">了解更多</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 KAO MINH CO., LTD. All Rights Reserved.</p>
+        <p>No. 2 Street, Ho Nai Industrial Park, Ho Nai Ward, Dong Nai Province, Vietnam | 0251-6278666</p>
+    </footer>
+
+<script>
+const languageData = {
+    "zh": {
+        "site_title": "KAO MINH - 卓越散熱科技，驅動極致效能",
+        "nav_home": "首頁", "nav_about": "關於我們", "nav_products": "產品中心", "nav_oem": "OEM 產品查詢", "nav_contact": "聯絡我們",
+        "hero_slogan": "KAO MINH - 您最信賴的散熱系統專家",
+        "hero_title": "卓越散熱科技，驅動極致效能",
+        "hero_desc": "KAO MINH 深耕汽車散熱系統領域，憑藉多年的專業製造經驗與創新技術，致力於提供全球客戶最高品質的汽車水箱與散熱解決方案。我們堅持採用頂級原料與精密製程，確保每一件產品都具備卓越的散熱效率、耐用性與穩定性。",
+        "hero_button": "探索我們的產品",
+        "products_section_title": "我們的服務",
+        "product1_title": "汽車散熱器", "product1_desc": "採用高純度鋁材與強化結構，提供高效散熱與極致耐用性，有效延長引擎壽命。",
+        "product2_title": "冷凝器", "product2_desc": "專為現代汽車空調系統設計，具備優異熱交換性能，提供穩定強效的冷房效果。",
+        "product3_title": "精準 OEM 匹配", "product3_desc": "透過我們的線上查詢系統，快速找到完全符合您需求的精準替換零件。",
+        "about_section_title": "關於 KAO MINH",
+        "about_section_desc": "自創立以來，KAO MINH 始終專注於汽車散熱系統的研發與製造。我們座落於越南同奈省的胡奈工業區，擁有現代化的生產基地與專業技術團隊。憑藉對品質的堅持與對技術的熱情，KAO MINH 已成為業界領先的製造商之一，產品行銷全球，深獲客戶信賴。",
+        "about_section_button": "了解更多"
+    },
+    "vi": {
+        "site_title": "KAO MINH - Công nghệ tản nhiệt vượt trội, thúc đẩy hiệu suất tối đa",
+        "nav_home": "Trang Chủ", "nav_about": "Về Chúng Tôi", "nav_products": "Sản Phẩm", "nav_oem": "Tra Cứu OEM", "nav_contact": "Liên Hệ",
+        "hero_slogan": "KAO MINH - Chuyên gia hệ thống tản nhiệt đáng tin cậy của bạn",
+        "hero_title": "Công nghệ tản nhiệt vượt trội, thúc đẩy hiệu suất tối đa",
+        "hero_desc": "KAO MINH tập trung sâu vào lĩnh vực hệ thống tản nhiệt ô tô, với nhiều năm kinh nghiệm sản xuất chuyên nghiệp và công nghệ đổi mới, chúng tôi cam kết cung cấp cho khách hàng toàn cầu các giải pháp và két nước tản nhiệt ô tô chất lượng cao nhất. Chúng tôi kiên trì sử dụng nguyên liệu hàng đầu và quy trình chính xác để đảm bảo mỗi sản phẩm đều có hiệu suất tản nhiệt, độ bền và sự ổn định vượt trội.",
+        "hero_button": "Khám Phá Sản Phẩm",
+        "products_section_title": "Dịch vụ của chúng tôi",
+        "product1_title": "Két Nước Tản Nhiệt Ô Tô", "product1_desc": "Sử dụng nhôm có độ tinh khiết cao và kết cấu gia cố, cung cấp khả năng tản nhiệt hiệu quả và độ bền tối đa, kéo dài tuổi thọ động cơ.",
+        "product2_title": "Dàn Nóng", "product2_desc": "Được thiết kế cho hệ thống điều hòa ô tô hiện đại, có hiệu suất trao đổi nhiệt tuyệt vời, mang lại hiệu quả làm lạnh mạnh mẽ và ổn định.",
+        "product3_title": "Đối Chiếu OEM Chính Xác", "product3_desc": "Thông qua hệ thống tra cứu trực tuyến của chúng tôi, bạn có thể nhanh chóng tìm thấy các bộ phận thay thế chính xác phù hợp với nhu cầu của mình.",
+        "about_section_title": "Về KAO MINH",
+        "about_section_desc": "Kể từ khi thành lập, KAO MINH luôn tập trung vào việc nghiên cứu, phát triển và sản xuất hệ thống tản nhiệt ô tô. Đặt tại Khu công nghiệp Hố Nai, tỉnh Đồng Nai, Việt Nam, chúng tôi có cơ sở sản xuất hiện đại và đội ngũ kỹ thuật chuyên nghiệp. Với sự kiên định về chất lượng và niềm đam mê công nghệ, KAO MINH đã trở thành một trong những nhà sản xuất hàng đầu, sản phẩm được bán trên toàn thế giới và được khách hàng tin tưởng sâu sắc.",
+        "about_section_button": "Tìm Hiểu Thêm"
+    },
+    "en": {
+        "site_title": "KAO MINH - Superior Cooling Technology, Driving Ultimate Performance",
+        "nav_home": "Home", "nav_about": "About Us", "nav_products": "Products", "nav_oem": "OEM Search", "nav_contact": "Contact Us",
+        "hero_slogan": "KAO MINH - Your Most Trusted Cooling System Expert",
+        "hero_title": "Superior Cooling Technology, Driving Ultimate Performance",
+        "hero_desc": "KAO MINH specializes in automotive cooling systems, leveraging years of professional manufacturing experience and innovative technology to provide global customers with the highest quality automotive radiators and cooling solutions. We insist on using premium raw materials and precision processes to ensure every product delivers excellent cooling efficiency, durability, and stability.",
+        "hero_button": "Explore Our Products",
+        "products_section_title": "Our Services",
+        "product1_title": "Automotive Radiators", "product1_desc": "Made with high-purity aluminum and reinforced structures to provide efficient cooling and maximum durability, effectively extending engine life.",
+        "product2_title": "Condensers", "product2_desc": "Designed for modern automotive air conditioning systems, featuring excellent heat exchange performance for stable and powerful cooling.",
+        "product3_title": "Precise OEM Matching", "product3_desc": "Quickly find the exact replacement parts that meet your needs through our online search system.",
+        "about_section_title": "About KAO MINH",
+        "about_section_desc": "Since its establishment, KAO MINH has focused on the R&D and manufacturing of automotive cooling systems. Located in Ho Nai Industrial Park, Dong Nai Province, Vietnam, we have a modern production base and a professional technical team. With a commitment to quality and a passion for technology, KAO MINH has become a leading manufacturer with products sold worldwide, earning deep trust from our customers.",
+        "about_section_button": "Learn More"
+    }
+};
+
+function changeLanguage(lang) {
+    document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang;
+    const elements = document.querySelectorAll('[data-lang-key]');
+    elements.forEach(el => {
+        const key = el.getAttribute('data-lang-key');
+        if (languageData[lang] && languageData[lang][key]) {
+            el.innerHTML = languageData[lang][key];
+        }
+    });
+    localStorage.setItem('preferredLanguage', lang);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const switcher = document.getElementById('lang-switcher');
+    const savedLang = localStorage.getItem('preferredLanguage') || 'zh';
+    
+    switcher.value = savedLang;
+    changeLanguage(savedLang);
+
+    switcher.addEventListener('change', (event) => {
+        changeLanguage(event.target.value);
+    });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-key="page_title">產品中心 - KAO MINH</title>
+    <style>
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; color: #333; line-height: 1.6; }
+        .navbar { background-color: #1a1a1a; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .navbar .logo { color: #fff; font-size: 1.5rem; font-weight: bold; }
+        .nav-links { display: flex; align-items: center; }
+        .nav-links a { color: #fff; text-decoration: none; margin-left: 20px; font-size: 1rem; transition: color 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: #f0ad4e; }
+        #lang-switcher { margin-left: 20px; background-color: #333; color: #fff; border: 1px solid #555; border-radius: 4px; padding: 5px; }
+        .page-header { background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/產品中心.png'); background-size: cover; background-position: center; color: #fff; text-align: center; padding: 80px 20px; }
+        .page-header h1 { font-size: 2.5rem; }
+        .container { padding: 40px 20px; max-width: 1200px; margin: auto; }
+        .product-item { display: flex; flex-wrap: wrap; align-items: center; gap: 40px; margin-bottom: 60px; }
+        .product-item:nth-child(even) { flex-direction: row-reverse; }
+        .product-image { flex: 1; min-width: 300px; }
+        .product-image img { max-width: 100%; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .product-description { flex: 1.2; min-width: 300px; }
+        .product-description h2 { font-size: 2rem; color: #1a1a1a; }
+        .product-description h3 { font-size: 1.3rem; color: #f0ad4e; border-bottom: 2px solid #f0ad4e; padding-bottom: 5px; margin-top: 0; }
+        .product-description ul { list-style: none; padding-left: 0; }
+        .product-description ul li { padding-left: 1.5em; position: relative; }
+        .product-description ul li:before { content: '✓'; color: #f0ad4e; position: absolute; left: 0; }
+        .footer { background-color: #1a1a1a; color: #fff; text-align: center; padding: 20px; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">KAO MINH</div>
+        <nav class="nav-links">
+            <a href="index.html" data-lang-key="nav_home">首頁</a>
+            <a href="about.html" data-lang-key="nav_about">關於我們</a>
+            <a href="products.html" class="active" data-lang-key="nav_products">產品中心</a>
+            <a href="oem-search.html" data-lang-key="nav_oem">OEM 產品查詢</a>
+            <a href="contact.html" data-lang-key="nav_contact">聯絡我們</a>
+            <select id="lang-switcher">
+                <option value="zh">繁體中文</option>
+                <option value="vi">Tiếng Việt</option>
+                <option value="en">English</option>
+            </select>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <h1 data-lang-key="header_title">KAO MINH 高品質散熱產品系列</h1>
+            <p data-lang-key="header_subtitle">我們提供完整且高品質的汽車散熱系統產品，全系列皆採用強化材料與先進製程打造，確保在各種嚴苛環境下依然能發揮最佳散熱效能。</p>
+        </section>
+
+        <section class="container">
+            <div class="product-item">
+                <div class="product-image">
+                    <img src="images/水箱.jpg" alt="汽車散熱器">
+                </div>
+                <div class="product-description">
+                    <h2 data-lang-key="p1_title">汽車散熱器</h2>
+                    <h3 data-lang-key="p1_subtitle">高效散熱，極致耐用</h3>
+                    <p data-lang-key="p1_desc">KAO MINH 汽車散熱器採用高純度鋁材與強化塑鋼，透過精密的鰭片設計與強化的管路結構，大幅提升散熱面積與效率。產品經過嚴格的壓力測試與震動測試，確保其在高溫高壓環境下的絕佳穩定性與防漏表現，有效延長引擎使用壽命。</p>
+                    <ul>
+                        <li data-lang-key="p1_f1">高品質鋁合金核心，散熱效率最大化</li>
+                        <li data-lang-key="p1_f2">強化塑鋼水室，耐高壓、抗腐蝕</li>
+                        <li data-lang-key="p1_f3">精密焊接工藝，杜絕洩漏風險</li>
+                        <li data-lang-key="p1_f4">符合或超越原廠 OEM 規格</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <div class="product-image">
+                    <img src="images/冷凝器 Condensers.png" alt="冷凝器">
+                </div>
+                <div class="product-description">
+                    <h2 data-lang-key="p2_title">冷凝器</h2>
+                    <h3 data-lang-key="p2_subtitle">快速冷卻，效能卓越</h3>
+                    <p data-lang-key="p2_desc">我們的冷凝器專為現代汽車空調系統設計，具備優異的熱交換性能。採用平行流 (Parallel Flow) 設計，能快速且均勻地釋放冷媒熱能，提供穩定強效的冷房效果。表面經過特殊防腐蝕處理，能有效抵抗環境侵蝕，確保長久耐用。</p>
+                     <ul>
+                        <li data-lang-key="p2_f1">平行流設計，提升冷卻效率</li>
+                        <li data-lang-key="p2_f2">表面防腐蝕塗層，延長產品壽命</li>
+                        <li data-lang-key="p2_f3">輕量化結構，減少車身負擔</li>
+                        <li data-lang-key="p2_f4">精準安裝孔位，易於安裝替換</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 KAO MINH CO., LTD. All Rights Reserved.</p>
+        <p>No. 2 Street, Ho Nai Industrial Park, Ho Nai Ward, Dong Nai Province, Vietnam | 0251-6278666</p>
+    </footer>
+
+<script>
+const languageData = {
+    "zh": {
+        "page_title": "產品中心 - KAO MINH", "nav_home": "首頁", "nav_about": "關於我們", "nav_products": "產品中心", "nav_oem": "OEM 產品查詢", "nav_contact": "聯絡我們",
+        "header_title": "KAO MINH 高品質散熱產品系列", "header_subtitle": "我們提供完整且高品質的汽車散熱系統產品，全系列皆採用強化材料與先進製程打造，確保在各種嚴苛環境下依然能發揮最佳散熱效能。",
+        "p1_title": "汽車散熱器", "p1_subtitle": "高效散熱，極致耐用", "p1_desc": "KAO MINH 汽車散熱器採用高純度鋁材與強化塑鋼，透過精密的鰭片設計與強化的管路結構，大幅提升散熱面積與效率。產品經過嚴格的壓力測試與震動測試，確保其在高溫高壓環境下的絕佳穩定性與防漏表現，有效延長引擎使用壽命。",
+        "p1_f1": "高品質鋁合金核心，散熱效率最大化", "p1_f2": "強化塑鋼水室，耐高壓、抗腐蝕", "p1_f3": "精密焊接工藝，杜絕洩漏風險", "p1_f4": "符合或超越原廠 OEM 規格",
+        "p2_title": "冷凝器", "p2_subtitle": "快速冷卻，效能卓越", "p2_desc": "我們的冷凝器專為現代汽車空調系統設計，具備優異的熱交換性能。採用平行流 (Parallel Flow) 設計，能快速且均勻地釋放冷媒熱能，提供穩定強效的冷房效果。表面經過特殊防腐蝕處理，能有效抵抗環境侵蝕，確保長久耐用。",
+        "p2_f1": "平行流設計，提升冷卻效率", "p2_f2": "表面防腐蝕塗層，延長產品壽命", "p2_f3": "輕量化結構，減少車身負擔", "p2_f4": "精準安裝孔位，易於安裝替換"
+    },
+    "vi": {
+        "page_title": "Sản Phẩm - KAO MINH", "nav_home": "Trang Chủ", "nav_about": "Về Chúng Tôi", "nav_products": "Sản Phẩm", "nav_oem": "Tra Cứu OEM", "nav_contact": "Liên Hệ",
+        "header_title": "Dòng Sản Phẩm Tản Nhiệt Chất Lượng Cao Của KAO MINH", "header_subtitle": "Chúng tôi cung cấp các sản phẩm hệ thống tản nhiệt ô tô hoàn chỉnh và chất lượng cao, toàn bộ dòng sản phẩm được chế tạo từ vật liệu gia cố và quy trình tiên tiến, đảm bảo hiệu suất tản nhiệt tốt nhất ngay cả trong môi trường khắc nghiệt.",
+        "p1_title": "Két Nước Tản Nhiệt Ô Tô", "p1_subtitle": "Tản nhiệt hiệu quả, độ bền tối đa", "p1_desc": "Két nước KAO MINH sử dụng nhôm có độ tinh khiết cao và nhựa gia cố, thông qua thiết kế cánh tản nhiệt chính xác và cấu trúc ống được tăng cường, giúp tăng đáng kể diện tích và hiệu quả tản nhiệt. Sản phẩm đã trải qua các bài kiểm tra áp suất và độ rung nghiêm ngặt để đảm bảo sự ổn định tuyệt vời và khả năng chống rò rỉ trong môi trường nhiệt độ và áp suất cao, kéo dài tuổi thọ động cơ.",
+        "p1_f1": "Lõi hợp kim nhôm chất lượng cao, tối đa hóa hiệu suất tản nhiệt", "p1_f2": "Bể chứa bằng nhựa gia cố, chịu áp suất cao, chống ăn mòn", "p1_f3": "Công nghệ hàn chính xác, ngăn ngừa nguy cơ rò rỉ", "p1_f4": "Đáp ứng hoặc vượt qua tiêu chuẩn OEM của nhà sản xuất gốc",
+        "p2_title": "Dàn Nóng", "p2_subtitle": "Làm mát nhanh, hiệu suất vượt trội", "p2_desc": "Dàn nóng của chúng tôi được thiết kế đặc biệt cho hệ thống điều hòa không khí ô tô hiện đại, có hiệu suất trao đổi nhiệt tuyệt vời. Sử dụng thiết kế dòng chảy song song (Parallel Flow), nó có thể nhanh chóng và đồng đều giải phóng nhiệt của môi chất lạnh, mang lại hiệu quả làm mát mạnh mẽ và ổn định. Bề mặt được xử lý chống ăn mòn đặc biệt để chống lại sự ăn mòn của môi trường và đảm bảo độ bền lâu dài.",
+        "p2_f1": "Thiết kế dòng chảy song song, nâng cao hiệu quả làm mát", "p2_f2": "Lớp phủ chống ăn mòn bề mặt, kéo dài tuổi thọ sản phẩm", "p2_f3": "Kết cấu nhẹ, giảm tải cho xe", "p2_f4": "Lỗ lắp đặt chính xác, dễ dàng lắp đặt và thay thế"
+    },
+    "en": {
+        "page_title": "Products - KAO MINH", "nav_home": "Home", "nav_about": "About Us", "nav_products": "Products", "nav_oem": "OEM Search", "nav_contact": "Contact Us",
+        "header_title": "KAO MINH High-Quality Cooling Product Series", "header_subtitle": "We offer a complete range of high-quality automotive cooling system products, all manufactured with reinforced materials and advanced processes to ensure optimal cooling performance even in harsh environments.",
+        "p1_title": "Automotive Radiators", "p1_subtitle": "Efficient Cooling, Ultimate Durability", "p1_desc": "KAO MINH radiators use high-purity aluminum and reinforced plastic tanks. Through precision fin design and a strengthened tube structure, the heat dissipation area and efficiency are significantly increased. Products undergo rigorous pressure and vibration tests to ensure excellent stability and leak-proof performance in high-temperature, high-pressure environments, effectively extending engine life.",
+        "p1_f1": "High-quality aluminum alloy core for maximum cooling efficiency", "p1_f2": "Reinforced plastic tanks for high pressure and corrosion resistance", "p1_f3": "Precision welding technology to eliminate leakage risks", "p1_f4": "Meets or exceeds original equipment (OEM) specifications",
+        "p2_title": "Condensers", "p2_subtitle": "Rapid Cooling, Excellent Performance", "p2_desc": "Our condensers are designed for modern automotive A/C systems, featuring superior heat exchange capabilities. Using a parallel flow design, they quickly and evenly release refrigerant heat, providing stable and powerful cooling. The surface is treated with a special anti-corrosion coating to resist environmental damage and ensure long-lasting durability.",
+        "p2_f1": "Parallel flow design to enhance cooling efficiency", "p2_f2": "Anti-corrosion surface coating to extend product life", "p2_f3": "Lightweight structure to reduce vehicle load", "p2_f4": "Precise mounting points for easy installation and replacement"
+    }
+};
+
+function changeLanguage(lang) {
+    document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang;
+    const elements = document.querySelectorAll('[data-lang-key]');
+    elements.forEach(el => {
+        const key = el.getAttribute('data-lang-key');
+        if (languageData[lang] && languageData[lang][key]) {
+            el.innerHTML = languageData[lang][key];
+        }
+    });
+    localStorage.setItem('preferredLanguage', lang);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const switcher = document.getElementById('lang-switcher');
+    const savedLang = localStorage.getItem('preferredLanguage') || 'zh';
+    
+    switcher.value = savedLang;
+    changeLanguage(savedLang);
+
+    switcher.addEventListener('change', (event) => {
+        changeLanguage(event.target.value);
+    });
+});
+</script>
+
+</body>
+</html>

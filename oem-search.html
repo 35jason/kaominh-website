@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-key="page_title">OEM 產品查詢 - KAO MINH</title>
+    <style>
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; color: #333; line-height: 1.6; }
+        .navbar { background-color: #1a1a1a; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .navbar .logo { color: #fff; font-size: 1.5rem; font-weight: bold; }
+        .nav-links { display: flex; align-items: center; }
+        .nav-links a { color: #fff; text-decoration: none; margin-left: 20px; font-size: 1rem; transition: color 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: #f0ad4e; }
+        #lang-switcher { margin-left: 20px; background-color: #333; color: #fff; border: 1px solid #555; border-radius: 4px; padding: 5px; }
+        .page-header { background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/oem 尋找.png'); background-size: cover; background-position: center; color: #fff; text-align: center; padding: 80px 20px; }
+        .page-header h1 { font-size: 2.5rem; }
+        .container { padding: 40px 20px; max-width: 800px; margin: auto; text-align: center; }
+        .search-box { margin-top: 20px; display: flex; border: 1px solid #ccc; border-radius: 5px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .search-box input { flex-grow: 1; border: none; padding: 15px; font-size: 1.1rem; }
+        .search-box input:focus { outline: none; }
+        .search-box button { background-color: #f0ad4e; color: #fff; border: none; padding: 0 30px; font-size: 1.1rem; cursor: pointer; transition: background-color 0.3s; }
+        .search-box button:hover { background-color: #e69524; }
+        .search-result { margin-top: 40px; text-align: left; border: 1px solid #ddd; padding: 20px; border-radius: 8px; display: none; }
+        .search-result.show { display: block; }
+        .result-content { display: flex; flex-wrap: wrap; gap: 20px; }
+        .result-content img { max-width: 100%; width: 200px; border-radius: 5px; }
+        .footer { background-color: #1a1a1a; color: #fff; text-align: center; padding: 20px; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">KAO MINH</div>
+        <nav class="nav-links">
+            <a href="index.html" data-lang-key="nav_home">首頁</a>
+            <a href="about.html" data-lang-key="nav_about">關於我們</a>
+            <a href="products.html" data-lang-key="nav_products">產品中心</a>
+            <a href="oem-search.html" class="active" data-lang-key="nav_oem">OEM 產品查詢</a>
+            <a href="contact.html" data-lang-key="nav_contact">聯絡我們</a>
+            <select id="lang-switcher">
+                <option value="zh">繁體中文</option>
+                <option value="vi">Tiếng Việt</option>
+                <option value="en">English</option>
+            </select>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <h1 data-lang-key="header_title">精準產品查詢系統</h1>
+        </section>
+
+        <section class="container">
+            <p data-lang-key="search_desc">請在下方欄位輸入您要查詢的 <strong>OEM (原廠零件編號)</strong>，我們的系統將為您即時匹配對應的 KAO MINH 產品資訊、詳細規格與清晰圖片，協助您快速找到最精準的散熱解決方案。</p>
+            <div class="search-box">
+                <input type="text" id="oemInput" data-lang-key="search_placeholder" placeholder="請輸入 OEM 號碼">
+                <button onclick="performSearch()" data-lang-key="search_button">立即查詢</button>
+            </div>
+            
+            <div id="searchResult" class="search-result">
+                <h3 data-lang-key="result_title">查詢結果</h3>
+                <div class="result-content">
+                    <img id="resultImage" src="https://via.placeholder.com/200x150.png?text=Product+Image" alt="產品圖片">
+                    <div>
+                        <p><strong><span data-lang-key="result_model_label">KAO MINH 型號:</span></strong> <span id="resultModel">KM-12345</span></p>
+                        <p><strong><span data-lang-key="result_oem_label">對應 OEM 號碼:</span></strong> <span id="resultOem">16400-0P030</span></p>
+                        <p><strong><span data-lang-key="result_name_label">產品名稱:</span></strong> <span id="resultName">汽車散熱器</span></p>
+                        <p><strong><span data-lang-key="result_vehicle_label">適用車型:</span></strong> <span id="resultVehicle">Toyota Camry 2.4L (2007-2011)</span></p>
+                    </div>
+                </div>
+            </div>
+             <p id="noResult" style="margin-top:20px; color:red; display:none;" data-lang-key="no_result_msg">查無此 OEM 號碼對應的產品，請確認後再試一次或直接與我們聯絡。</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 KAO MINH CO., LTD. All Rights Reserved.</p>
+        <p>No. 2 Street, Ho Nai Industrial Park, Ho Nai Ward, Dong Nai Province, Vietnam | 0251-6278666</p>
+    </footer>
+
+<script>
+const languageData = {
+    "zh": {
+        "page_title": "OEM 產品查詢 - KAO MINH", "nav_home": "首頁", "nav_about": "關於我們", "nav_products": "產品中心", "nav_oem": "OEM 產品查詢", "nav_contact": "聯絡我們",
+        "header_title": "精準產品查詢系統",
+        "search_desc": "請在下方欄位輸入您要查詢的 <strong>OEM (原廠零件編號)</strong>，我們的系統將為您即時匹配對應的 KAO MINH 產品資訊、詳細規格與清晰圖片，協助您快速找到最精準的散熱解決方案。",
+        "search_placeholder": "請輸入 OEM 號碼", "search_button": "立即查詢",
+        "result_title": "查詢結果", "result_model_label": "KAO MINH 型號:", "result_oem_label": "對應 OEM 號碼:", "result_name_label": "產品名稱:", "result_vehicle_label": "適用車型:",
+        "result_name_text": "汽車散熱器",
+        "no_result_msg": "查無此 OEM 號碼對應的產品，請確認後再試一次或直接與我們聯絡。"
+    },
+    "vi": {
+        "page_title": "Tra Cứu OEM - KAO MINH", "nav_home": "Trang Chủ", "nav_about": "Về Chúng Tôi", "nav_products": "Sản Phẩm", "nav_oem": "Tra Cứu OEM", "nav_contact": "Liên Hệ",
+        "header_title": "Hệ Thống Tra Cứu Sản Phẩm Chính Xác",
+        "search_desc": "Vui lòng nhập <strong>OEM (Mã phụ tùng gốc)</strong> vào ô dưới đây. Hệ thống của chúng tôi sẽ ngay lập tức khớp với thông tin sản phẩm KAO MINH tương ứng, thông số kỹ thuật chi tiết và hình ảnh rõ ràng, giúp bạn nhanh chóng tìm ra giải pháp tản nhiệt chính xác nhất.",
+        "search_placeholder": "Vui lòng nhập mã OEM", "search_button": "Tra Cứu Ngay",
+        "result_title": "Kết Quả Tra Cứu", "result_model_label": "Mã KAO MINH:", "result_oem_label": "Mã OEM tương ứng:", "result_name_label": "Tên sản phẩm:", "result_vehicle_label": "Dòng xe áp dụng:",
+        "result_name_text": "Két Nước Tản Nhiệt Ô Tô",
+        "no_result_msg": "Không tìm thấy sản phẩm tương ứng với mã OEM này. Vui lòng kiểm tra lại hoặc liên hệ trực tiếp với chúng tôi."
+    },
+    "en": {
+        "page_title": "OEM Search - KAO MINH", "nav_home": "Home", "nav_about": "About Us", "nav_products": "Products", "nav_oem": "OEM Search", "nav_contact": "Contact Us",
+        "header_title": "Precise Product Search System",
+        "search_desc": "Please enter the <strong>OEM (Original Equipment Manufacturer) number</strong> in the field below. Our system will instantly match it with the corresponding KAO MINH product information, detailed specifications, and clear images to help you quickly find the most accurate cooling solution.",
+        "search_placeholder": "Please enter OEM number", "search_button": "Search Now",
+        "result_title": "Search Result", "result_model_label": "KAO MINH Model:", "result_oem_label": "Corresponding OEM:", "result_name_label": "Product Name:", "result_vehicle_label": "Applicable Vehicle:",
+        "result_name_text": "Automotive Radiator",
+        "no_result_msg": "No product found for this OEM number. Please check the number and try again, or contact us directly."
+    }
+};
+
+function setPlaceholder(lang) {
+    const input = document.getElementById('oemInput');
+    if (input) {
+        input.placeholder = languageData[lang].search_placeholder;
+    }
+}
+
+function changeLanguage(lang) {
+    document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang;
+    const elements = document.querySelectorAll('[data-lang-key]');
+    elements.forEach(el => {
+        const key = el.getAttribute('data-lang-key');
+        if (languageData[lang] && languageData[lang][key]) {
+            // Handle placeholders separately
+            if (key === 'search_placeholder') {
+                el.placeholder = languageData[lang][key];
+            } else {
+                el.innerHTML = languageData[lang][key];
+            }
+        }
+    });
+    localStorage.setItem('preferredLanguage', lang);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const switcher = document.getElementById('lang-switcher');
+    const savedLang = localStorage.getItem('preferredLanguage') || 'zh';
+    
+    switcher.value = savedLang;
+    changeLanguage(savedLang);
+
+    switcher.addEventListener('change', (event) => {
+        changeLanguage(event.target.value);
+    });
+});
+
+function performSearch() {
+    const input = document.getElementById('oemInput').value.trim().toUpperCase();
+    const resultDiv = document.getElementById('searchResult');
+    const noResultDiv = document.getElementById('noResult');
+    const currentLang = localStorage.getItem('preferredLanguage') || 'zh';
+
+    if (input === '16400-0P030') {
+        document.getElementById('resultImage').src = 'https://images.unsplash.com/photo-1629479124449-8c4d61f1823a?q=80&w=800&auto=format&fit=crop';
+        document.getElementById('resultModel').textContent = 'KM-12345';
+        document.getElementById('resultOem').textContent = '16400-0P030';
+        document.getElementById('resultName').textContent = languageData[currentLang].result_name_text;
+        document.getElementById('resultVehicle').textContent = 'Toyota Camry 2.4L (2007-2011)';
+        resultDiv.classList.add('show');
+        noResultDiv.style.display = 'none';
+    } else {
+        resultDiv.classList.remove('show');
+        noResultDiv.style.display = 'block';
+    }
+}
+</script>
+
+</body>
+</html>
