@@ -23,7 +23,7 @@
         .product-description h2 { font-size: 2rem; color: #1a1a1a; }
         .product-description h3 { font-size: 1.3rem; color: #f0ad4e; border-bottom: 2px solid #f0ad4e; padding-bottom: 5px; margin-top: 0; }
         .product-description ul { list-style: none; padding-left: 0; }
-        .product-description ul li { padding-left: 1.5em; position: relative; }
+        .product-description ul li { padding-left: 1.5em; position: relative; margin-bottom: 8px; }
         .product-description ul li:before { content: '✓'; color: #f0ad4e; position: absolute; left: 0; }
         .footer { background-color: #1a1a1a; color: #fff; text-align: center; padding: 20px; font-size: 0.9rem; }
     </style>
@@ -53,6 +53,7 @@
         </section>
 
         <section class="container">
+            <!-- 產品 1：汽車散熱器 -->
             <div class="product-item">
                 <div class="product-image">
                     <img src="images/水箱.jpg" alt="汽車散熱器">
@@ -70,6 +71,26 @@
                 </div>
             </div>
 
+            <!-- 產品 2：超大型工業水箱 (新增於此) -->
+            <div class="product-item">
+                <div class="product-image">
+                    <!-- 使用您指定的圖片名稱 -->
+                    <img src="images/超大型工業水箱.png" alt="超大型工業水箱">
+                </div>
+                <div class="product-description">
+                    <h2 data-lang-key="p_mega_title">超大型工業水箱</h2>
+                    <h3 data-lang-key="p_mega_subtitle">巨型尺寸，重載專屬</h3>
+                    <p data-lang-key="p_mega_desc">專為重型工業設備與大型發電機組設計，尺寸高達 3.2 公尺 x 2.8 公尺。採用極致強化的特製框架與抗高壓散熱核心，即使在極端高負載與惡劣環境的連續運轉下，依然能提供無與倫比的散熱效能與結構穩定性。</p>
+                    <ul>
+                        <li data-lang-key="p_mega_f1">巨型規格 3.2M * 2.8M，滿足重度散熱需求</li>
+                        <li data-lang-key="p_mega_f2">特製強化金屬外框，具備極高抗震與抗壓能力</li>
+                        <li data-lang-key="p_mega_f3">工業級防腐蝕處理，適應嚴苛戶外與工廠環境</li>
+                        <li data-lang-key="p_mega_f4">專業客製化設計，完美匹配重型發電與工程設備</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 產品 3：冷凝器 -->
             <div class="product-item">
                 <div class="product-image">
                     <img src="images/冷凝器 Condensers.png" alt="冷凝器">
@@ -99,24 +120,42 @@ const languageData = {
     "zh": {
         "page_title": "產品中心 - KAO MINH", "nav_home": "首頁", "nav_about": "關於我們", "nav_products": "產品中心", "nav_oem": "OEM 產品查詢", "nav_contact": "聯絡我們",
         "header_title": "KAO MINH 高品質散熱產品系列", "header_subtitle": "我們提供完整且高品質的汽車散熱系統產品，全系列皆採用強化材料與先進製程打造，確保在各種嚴苛環境下依然能發揮最佳散熱效能。",
+        
         "p1_title": "汽車散熱器", "p1_subtitle": "高效散熱，極致耐用", "p1_desc": "KAO MINH 汽車散熱器採用高純度鋁材與強化塑鋼，透過精密的鰭片設計與強化的管路結構，大幅提升散熱面積與效率。產品經過嚴格的壓力測試與震動測試，確保其在高溫高壓環境下的絕佳穩定性與防漏表現，有效延長引擎使用壽命。",
         "p1_f1": "高品質鋁合金核心，散熱效率最大化", "p1_f2": "強化塑鋼水室，耐高壓、抗腐蝕", "p1_f3": "精密焊接工藝，杜絕洩漏風險", "p1_f4": "符合或超越原廠 OEM 規格",
+
+        /* 新增：超大型水箱 (繁體中文) */
+        "p_mega_title": "超大型工業水箱", "p_mega_subtitle": "巨型尺寸，重載專屬", "p_mega_desc": "專為重型工業設備與大型發電機組設計，尺寸高達 3.2 公尺 x 2.8 公尺。採用極致強化的特製框架與抗高壓散熱核心，即使在極端高負載與惡劣環境的連續運轉下，依然能提供無與倫比的散熱效能與結構穩定性。",
+        "p_mega_f1": "巨型規格 3.2M * 2.8M，滿足重度散熱需求", "p_mega_f2": "特製強化金屬外框，具備極高抗震與抗壓能力", "p_mega_f3": "工業級防腐蝕處理，適應嚴苛戶外與工廠環境", "p_mega_f4": "專業客製化設計，完美匹配重型發電與工程設備",
+        
         "p2_title": "冷凝器", "p2_subtitle": "快速冷卻，效能卓越", "p2_desc": "我們的冷凝器專為現代汽車空調系統設計，具備優異的熱交換性能。採用平行流 (Parallel Flow) 設計，能快速且均勻地釋放冷媒熱能，提供穩定強效的冷房效果。表面經過特殊防腐蝕處理，能有效抵抗環境侵蝕，確保長久耐用。",
         "p2_f1": "平行流設計，提升冷卻效率", "p2_f2": "表面防腐蝕塗層，延長產品壽命", "p2_f3": "輕量化結構，減少車身負擔", "p2_f4": "精準安裝孔位，易於安裝替換"
     },
     "vi": {
         "page_title": "Sản Phẩm - KAO MINH", "nav_home": "Trang Chủ", "nav_about": "Về Chúng Tôi", "nav_products": "Sản Phẩm", "nav_oem": "Tra Cứu OEM", "nav_contact": "Liên Hệ",
         "header_title": "Dòng Sản Phẩm Tản Nhiệt Chất Lượng Cao Của KAO MINH", "header_subtitle": "Chúng tôi cung cấp các sản phẩm hệ thống tản nhiệt ô tô hoàn chỉnh và chất lượng cao, toàn bộ dòng sản phẩm được chế tạo từ vật liệu gia cố và quy trình tiên tiến, đảm bảo hiệu suất tản nhiệt tốt nhất ngay cả trong môi trường khắc nghiệt.",
+        
         "p1_title": "Két Nước Tản Nhiệt Ô Tô", "p1_subtitle": "Tản nhiệt hiệu quả, độ bền tối đa", "p1_desc": "Két nước KAO MINH sử dụng nhôm có độ tinh khiết cao và nhựa gia cố, thông qua thiết kế cánh tản nhiệt chính xác và cấu trúc ống được tăng cường, giúp tăng đáng kể diện tích và hiệu quả tản nhiệt. Sản phẩm đã trải qua các bài kiểm tra áp suất và độ rung nghiêm ngặt để đảm bảo sự ổn định tuyệt vời và khả năng chống rò rỉ trong môi trường nhiệt độ và áp suất cao, kéo dài tuổi thọ động cơ.",
         "p1_f1": "Lõi hợp kim nhôm chất lượng cao, tối đa hóa hiệu suất tản nhiệt", "p1_f2": "Bể chứa bằng nhựa gia cố, chịu áp suất cao, chống ăn mòn", "p1_f3": "Công nghệ hàn chính xác, ngăn ngừa nguy cơ rò rỉ", "p1_f4": "Đáp ứng hoặc vượt qua tiêu chuẩn OEM của nhà sản xuất gốc",
+
+        /* 新增：超大型水箱 (越南文) */
+        "p_mega_title": "Két Nước Công Nghiệp Siêu Lớn", "p_mega_subtitle": "Kích thước khổng lồ, Dành cho tải trọng nặng", "p_mega_desc": "Được thiết kế đặc biệt cho các thiết bị công nghiệp hạng nặng và tổ máy phát điện lớn, với kích thước lên tới 3.2m x 2.8m. Sử dụng khung gia cố chắc chắn và lõi tản nhiệt chịu áp lực cao, mang lại hiệu suất tản nhiệt và độ ổn định kết cấu vô song ngay cả trong điều kiện vận hành liên tục với tải trọng khắc nghiệt.",
+        "p_mega_f1": "Kích thước siêu lớn 3.2M * 2.8M, đáp ứng nhu cầu tản nhiệt cực cao", "p_mega_f2": "Khung kim loại gia cố đặc biệt, khả năng chống sốc và chịu áp lực cực tốt", "p_mega_f3": "Xử lý chống ăn mòn cấp công nghiệp, thích ứng với môi trường nhà máy ngoài trời", "p_mega_f4": "Thiết kế tùy chỉnh, hoàn toàn phù hợp với thiết bị kỹ thuật và máy phát điện hạng nặng",
+        
         "p2_title": "Dàn Nóng", "p2_subtitle": "Làm mát nhanh, hiệu suất vượt trội", "p2_desc": "Dàn nóng của chúng tôi được thiết kế đặc biệt cho hệ thống điều hòa không khí ô tô hiện đại, có hiệu suất trao đổi nhiệt tuyệt vời. Sử dụng thiết kế dòng chảy song song (Parallel Flow), nó có thể nhanh chóng và đồng đều giải phóng nhiệt của môi chất lạnh, mang lại hiệu quả làm mát mạnh mẽ và ổn định. Bề mặt được xử lý chống ăn mòn đặc biệt để chống lại sự ăn mòn của môi trường và đảm bảo độ bền lâu dài.",
         "p2_f1": "Thiết kế dòng chảy song song, nâng cao hiệu quả làm mát", "p2_f2": "Lớp phủ chống ăn mòn bề mặt, kéo dài tuổi thọ sản phẩm", "p2_f3": "Kết cấu nhẹ, giảm tải cho xe", "p2_f4": "Lỗ lắp đặt chính xác, dễ dàng lắp đặt và thay thế"
     },
     "en": {
         "page_title": "Products - KAO MINH", "nav_home": "Home", "nav_about": "About Us", "nav_products": "Products", "nav_oem": "OEM Search", "nav_contact": "Contact Us",
         "header_title": "KAO MINH High-Quality Cooling Product Series", "header_subtitle": "We offer a complete range of high-quality automotive cooling system products, all manufactured with reinforced materials and advanced processes to ensure optimal cooling performance even in harsh environments.",
+        
         "p1_title": "Automotive Radiators", "p1_subtitle": "Efficient Cooling, Ultimate Durability", "p1_desc": "KAO MINH radiators use high-purity aluminum and reinforced plastic tanks. Through precision fin design and a strengthened tube structure, the heat dissipation area and efficiency are significantly increased. Products undergo rigorous pressure and vibration tests to ensure excellent stability and leak-proof performance in high-temperature, high-pressure environments, effectively extending engine life.",
         "p1_f1": "High-quality aluminum alloy core for maximum cooling efficiency", "p1_f2": "Reinforced plastic tanks for high pressure and corrosion resistance", "p1_f3": "Precision welding technology to eliminate leakage risks", "p1_f4": "Meets or exceeds original equipment (OEM) specifications",
+
+        /* 新增：超大型水箱 (英文) */
+        "p_mega_title": "Ultra-Large Industrial Radiators", "p_mega_subtitle": "Giant Size, Heavy-Duty Exclusive", "p_mega_desc": "Specially designed for heavy industrial equipment and massive generator sets, measuring an impressive 3.2 meters by 2.8 meters. Featuring a specifically reinforced frame and a high-pressure resistant cooling core, it delivers unparalleled cooling performance and structural stability even under continuous, extreme high-load and harsh operations.",
+        "p_mega_f1": "Massive 3.2M * 2.8M size for extreme heat dissipation needs", "p_mega_f2": "Specially reinforced metal frame for ultra-high shock and pressure resistance", "p_mega_f3": "Industrial-grade anti-corrosion treatment for harsh outdoor and factory environments", "p_mega_f4": "Custom-engineered to perfectly match heavy-duty generators and engineering equipment",
+        
         "p2_title": "Condensers", "p2_subtitle": "Rapid Cooling, Excellent Performance", "p2_desc": "Our condensers are designed for modern automotive A/C systems, featuring superior heat exchange capabilities. Using a parallel flow design, they quickly and evenly release refrigerant heat, providing stable and powerful cooling. The surface is treated with a special anti-corrosion coating to resist environmental damage and ensure long-lasting durability.",
         "p2_f1": "Parallel flow design to enhance cooling efficiency", "p2_f2": "Anti-corrosion surface coating to extend product life", "p2_f3": "Lightweight structure to reduce vehicle load", "p2_f4": "Precise mounting points for easy installation and replacement"
     }
